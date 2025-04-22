@@ -1,0 +1,197 @@
+/**
+ * chatbot.css – Bottin chat-ikkunan ja viestien tyylit
+ * 
+ * Tämä tiedosto sisältää:
+ * - Chat-ikkunan ulkoasun
+ * - Viestikentän ja painikkeiden tyylit
+ * - Sulkupainikkeet ja otsikot
+ * - Responsiivisuus mobiililaitteille
+ */
+
+/* Ulompi kontti joka ei näy mutta sisältää chat-ikkunan */
+#chatbot-container-v2 {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    z-index: 99999;
+}
+
+/* Itse chat-ikkuna */
+#chatbot-box-v2 {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    height: 450px;
+    background-color: #121212 !important;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(255,255,255,0.2);
+    color: white;
+    font-family: Arial, sans-serif;
+    z-index: 999999;
+    display: block !important;
+    border: 1px solid #8a2be2;
+    visibility: visible !important;
+    opacity: 1 !important;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    animation: chatbotFadeIn 0.3s ease-in-out;
+}
+
+/* Chat-ikkunan sisääntuloanimaatio */
+@keyframes chatbotFadeIn {
+    from {
+        opacity: 0 !important;
+        transform: scale(0.9) translateZ(0);
+    }
+    to {
+        opacity: 1 !important;
+        transform: scale(1) translateZ(0);
+    }
+}
+
+/* Responsiivinen koko pienemmillä näytöillä */
+@media (max-width: 768px) {
+    #chatbot-box-v2 {
+        width: 90%;
+        right: 5%;
+        bottom: 10px;
+    }
+}
+
+/* Viestialueen tyyli */
+#chatbot-messages-v2 {
+    height: 330px;
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #1a1a1a !important;
+    border-radius: 8px;
+    margin-top: 30px;
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Kysymysnapit */
+.chatbot-option-v2 {
+    display: block;
+    padding: 8px;
+    margin: 8px 0;
+    background-color: #8a2be2 !important;
+    color: white !important;
+    border: none;
+    text-align: left;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.chatbot-option-v2:hover {
+    background-color: #6d1bbf !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.chatbot-option-v2:active {
+    transform: translateY(0);
+}
+
+/* Sulkunappi oikeassa yläkulmassa */
+.chatbot-close-v2 {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.chatbot-close-v2:hover {
+    transform: scale(1.1);
+    color: #ff5555;
+}
+
+/* Otsikko chat-ikkunassa */
+.chatbot-title-v2 {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Viestien ulkoasu */
+.bot-message, .user-message {
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+    max-width: 85%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    animation: messageFadeIn 0.3s ease-out;
+}
+
+/* Viestin ilmestymisanimaatio */
+@keyframes messageFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Botti- ja käyttäjäviestien värierot */
+.bot-message {
+    background-color: #8a2be2;
+    align-self: flex-start;
+    margin-right: auto;
+    border-bottom-left-radius: 2px;
+}
+
+.user-message {
+    background-color: #2b8a2b;
+    align-self: flex-end;
+    margin-left: auto;
+    text-align: right;
+    border-bottom-right-radius: 2px;
+}
+
+/* Nimien värit viesteissä */
+.bot-name, .user-name {
+    font-weight: bold;
+    color: #f0f0f0;
+}
+
+/* Varsinainen viestisisältö */
+.message-content {
+    color: white;
+}
+
+/* Jäljellä olevat vaihtoehdot erillisessä containerissa */
+.remaining-options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: none;
+    min-height: 100px;
+    overflow-y: visible;
+    padding: 8px;
+    width: 100%;
+}
