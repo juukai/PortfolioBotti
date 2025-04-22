@@ -16,7 +16,7 @@ Sopii täydellisesti portfolioon projektien esittelyyn.
 
 ## 🖼️ Kuvakaappaus
 
-![Chatbot-näkymä]<img src="https://raw.githubusercontent.com/juukai/PortfolioBotti/main/chatbot-preview.png" width="250px" alt="Chatbot-näkymä">
+<img src="chatbot-preview.png" width="220" alt="Chatbot-näkymä">
 
 ---
 
